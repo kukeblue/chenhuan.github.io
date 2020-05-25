@@ -1,0 +1,50 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add superagent
+
+PATH: 
+  /Users/huanchen/develop/flutter/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/huanchen/develop/flutter/bin
+
+Yarn version: 
+  1.22.0
+
+Node version: 
+  12.16.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: connect ENETUNREACH 172.31.255.254:443 - Local (0.0.0.0:55857)
+      at internalConnect (net.js:917:16)
+      at defaultTriggerAsyncIdScope (internal/async_hooks.js:311:12)
+      at emitLookup (net.js:1059:9)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:107502:28
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:107411:13
+      at RawTask.module.exports.RawTask.call (/usr/local/lib/node_modules/yarn/lib/cli.js:83601:19)
+      at flush (/usr/local/lib/node_modules/yarn/lib/cli.js:83683:29)
+      at processTicksAndRejections (internal/process/task_queues.js:79:11)
+
+npm manifest: 
+  {
+    "name": "front",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+      "start": "electron ."
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "zerorpc": "^0.9.8"
+    },
+    "devDependencies": {
+      "electron": "^9.0.0-beta.21"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
