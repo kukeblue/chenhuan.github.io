@@ -9,7 +9,7 @@ class Utils {
             }, t);
         });
     }
-    async apiCall(method, params) {
+    async apiCall(method, params=[]) {
         const res = await superagent.post('/api/jsonrpc')
             .send({
                 method,
