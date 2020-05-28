@@ -9,18 +9,19 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     // transparent: true,
-    
     width: 1200,
     height: 600,
-    frame: false, //取消window自带的关闭最小化等
+    // frame: false, //取消window自带的关闭最小化等
     resizable: false,
     webPreferences: {
+      nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js')
     }
   })
   // and load the index.html of the app.
   mainWindow.loadURL('http://localhost:3000')
-  console.log('窗口启动成功，当前的x,y', mainWindow.getPosition())
+  mainWindow.webContents.openDevTools();
+  // console.log('窗口启动成功，当前的x,y', mainWindow.getPosition())
   utils.apiCall('setPosition',  mainWindow.getPosition())
 
 

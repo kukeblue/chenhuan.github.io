@@ -1,4 +1,4 @@
 
-import shoot_screen
+import ch_shoot_screen
 
-shoot_screen.screenshot('ch.png', region=(0,0, 400, 400))
+ch_shoot_screen.screenshot.screenshot('ch.png', region=(0,0, 400, 400))

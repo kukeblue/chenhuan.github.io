@@ -1,3 +1,3 @@
-import index as ocr
+import win32gui
+import win32api
 
-ocr.get_text_from_image('1590039942014.jpg')
