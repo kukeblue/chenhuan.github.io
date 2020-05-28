@@ -5,6 +5,7 @@ import time
 import _thread
 import ocr.index as ocr
 from log import logger
+import win32gui
 
 
 class Manipulator:
@@ -16,6 +17,12 @@ class Manipulator:
     # self.position[0], self.position[1], self.size[0] + self.position[0], self.size[1] + self.position[1])
 
     def __init__(self):
+        hwnd = win32gui.FindWindow('MHXYMainFrame', '梦幻西游 ONLINE - (深圳2区[小梅沙] - 囿倪幸福[29514110])')
+        left, top, right, bottom = win32gui.GetWindowRect(hwnd)
+        print(left, top, right, bottom)
+        self.position = [left, top]
+        self.size = [right - left, bottom - top]
+        self.region = (left, top, self.size[0], self.size[1]);
         _thread.start_new_thread(self.loop_update_state, ())
 
     @staticmethod
