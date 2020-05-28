@@ -6,25 +6,34 @@ const utils = require('./common/utils')
 let mainWindow
 
 function createWindow () {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
-    // transparent: true,
-    width: 1200,
-    height: 600,
-    // frame: false, //取消window自带的关闭最小化等
-    resizable: false,
-    webPreferences: {
-      nodeIntegration: true,
-      preload: path.join(__dirname, 'preload.js')
+
+  utils.apiCall('get_position').then(res=>{
+    if(res.result) {
+       const region = res.result.region;
+       console.log('region', region);
+       mainWindow = new BrowserWindow({
+        // transparent: true,
+        width: Number.parseInt(region[2]) + 400,
+        height: Number.parseInt(region[3]),
+        x: Number.parseInt(region[0]),
+        y: Number.parseInt(region[1]),
+        frame: false, //取消window自带的关闭最小化等
+        resizable: false,
+        webPreferences: {
+          nodeIntegration: true,
+          preload: path.join(__dirname, 'preload.js')
+        }
+      })
+      // and load the index.html of the app.
+      mainWindow.loadURL('http://localhost:3000')
+      mainWindow.webContents.openDevTools();
     }
   })
-  // and load the index.html of the app.
-  mainWindow.loadURL('http://localhost:3000')
-  mainWindow.webContents.openDevTools();
+  
+
+  // Create the browser window.
+
   // console.log('窗口启动成功，当前的x,y', mainWindow.getPosition())
-  utils.apiCall('setPosition',  mainWindow.getPosition())
-
-
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }

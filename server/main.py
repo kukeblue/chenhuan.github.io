@@ -2,12 +2,11 @@ from werkzeug.wrappers import Request, Response
 from werkzeug.serving import run_simple
 from jsonrpc import JSONRPCResponseManager, dispatcher
 from manipulator import Manipulator
-
-import logging
-werkzeug_log = logging.getLogger("werkzeug")
-werkzeug_log.info = werkzeug_log.debug;
-
 from log import logger
+import logging
+
+werkzeug_log = logging.getLogger("werkzeug")
+werkzeug_log.info = werkzeug_log.debug
 
 
 # 我的机械手
@@ -22,10 +21,6 @@ def foobar(**kwargs):
 # 设置机械助手位置
 def set_position(x, y):
     print('debug: 设置窗口位置', x, y)
-    # manipulator.position = [x, y]
-    # manipulator.region=(x, y, manipulator.size[0], manipulator.size[1])
-    # manipulator.area = (manipulator.position[0], manipulator.position[1], manipulator.size[0] + manipulator.position[0], manipulator.size[1] + manipulator.position[1])
-    # print('debug: 窗口 region', manipulator.region)
 
 
 # 获取机械助手位置
@@ -34,7 +29,8 @@ def get_position():
         "position":  manipulator.position,
         "mouse_position": manipulator.mouse_position,
         "log_data": logger.log_data,
-    }
+        "region": manipulator.region,
+     }
 
 
 def find_text():

@@ -8,15 +8,15 @@ import Input from 'antd-mobile/lib/input-item/Input'
 
 export default function Home() {
 
-  let { position, mousePosition, logData } = userLooper({isloop: true})
-
+  let { position, mousePosition, logData, region } = userLooper({isloop: true})
+  let a = 100
   return (
     <div className='page'>
-      <Flex>
-        <div className='game-container'>
+      <Flex align='start'>
+        <div style={{height: region[3] + 'px', width: region[2] + 'px'}} className='game-container'>
           <div> 任务坐标: 227, 630 </div>
         </div>
-        <div className='control-panel'>
+        <div  className='control-panel'>
           <WingBlank>
             <WhiteSpace/>
             <div> 窗口位置  {'' + position.toString()} </div>

@@ -9,6 +9,7 @@ export  function userLooper({isloop = true}) {
     }, [])
 
     const [position, setPosition] = useState([]);
+    const [region, setRegion] = useState([0,0, 800, 600]);
     const [mousePosition, setMousePosition] = useState([]);
     const [logData, setLogData] = useState('');
     
@@ -18,6 +19,7 @@ export  function userLooper({isloop = true}) {
             setPosition(res.position)
             setMousePosition(res.mouse_position)
             setLogData(res.log_data)
+            setRegion(res.region)
         }
     }
 
@@ -29,7 +31,7 @@ export  function userLooper({isloop = true}) {
     }
   
     
-    return {logData, position, mousePosition}
+    return {region, logData, position, mousePosition}
   }
   
 

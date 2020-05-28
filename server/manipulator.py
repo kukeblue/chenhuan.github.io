@@ -17,8 +17,12 @@ class Manipulator:
     # self.position[0], self.position[1], self.size[0] + self.position[0], self.size[1] + self.position[1])
 
     def __init__(self):
-        hwnd = win32gui.FindWindow('MHXYMainFrame', '梦幻西游 ONLINE - (深圳2区[小梅沙] - 囿倪幸福[29514110])')
+        hwnd = win32gui.FindWindow('WeChatMainWndForPC', '微信')
         left, top, right, bottom = win32gui.GetWindowRect(hwnd)
+        left = left / 2
+        top = top / 2
+        right = right / 2
+        bottom = bottom / 2
         print(left, top, right, bottom)
         self.position = [left, top]
         self.size = [right - left, bottom - top]
