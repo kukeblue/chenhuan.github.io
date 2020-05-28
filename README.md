@@ -20,5 +20,10 @@
 // https://www.cnblogs.com/aziji/p/10483242.html python 获取句柄
 
 
+服务依赖
+- pip install json-rpc
+- >pip install win32gui
+
+
 
 
