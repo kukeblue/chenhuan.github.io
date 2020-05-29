@@ -4,6 +4,9 @@ from jsonrpc import JSONRPCResponseManager, dispatcher
 from manipulator import Manipulator
 from log import logger
 import logging
+from action.send_wx_message import send_wx_message
+from pyautogui import screenshot
+
 
 werkzeug_log = logging.getLogger("werkzeug")
 werkzeug_log.info = werkzeug_log.debug
@@ -34,7 +37,7 @@ def get_position():
 
 
 def find_text():
-    manipulator.find_text();
+    send_wx_message(manipulator)
 
 
 @Request.application
@@ -43,11 +46,11 @@ def application(request):
     dispatcher["setPosition"] = set_position
     dispatcher["get_position"] = get_position
     dispatcher["find_text"] = find_text
-
     response = JSONRPCResponseManager.handle(request.data, dispatcher)
     return Response(response.json, mimetype='application/json')
 
 
 if __name__ == '__main__':
     print('--- 项目启动 ---')
-    run_simple('localhost', 4000, application, use_debugger=True)
+    manipulator.mouse_left_click(100, 100)
+    # run_simple('localhost', 4000, application, use_debugger=True)
