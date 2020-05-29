@@ -19,10 +19,10 @@ class Manipulator:
     def __init__(self):
         hwnd = win32gui.FindWindow('WeChatMainWndForPC', '微信')
         left, top, right, bottom = win32gui.GetWindowRect(hwnd)
-        left = left / 2
-        top = top / 2
-        right = right / 2
-        bottom = bottom / 2
+        left = left
+        top = top
+        right = right
+        bottom = bottom
         print(left, top, right, bottom)
         self.position = [left, top]
         self.size = [right - left, bottom - top]
