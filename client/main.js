@@ -12,7 +12,7 @@ function createWindow () {
        const region = res.result.region;
        console.log('region', region);
        mainWindow = new BrowserWindow({
-        // transparent: true,
+        transparent: true,
         width: Number.parseInt(region[2]) + 400,
         height: Number.parseInt(region[3]),
         x: Number.parseInt(region[0]),
