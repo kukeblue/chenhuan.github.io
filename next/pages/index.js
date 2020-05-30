@@ -13,9 +13,9 @@ export default function Home() {
   return (
     <div className='page'>
       <Flex align='start'>
-        <div style={{height: region[3] + 'px', width: region[2] + 'px'}} className='game-container'>
+        {/* <div style={{height: region[3] + 'px', width: region[2] + 'px'}} className='game-container'>
           <div> 任务坐标: 227, 630 </div>
-        </div>
+        </div> */}
         <div  className='control-panel'>
           <WingBlank>
             <WhiteSpace/>

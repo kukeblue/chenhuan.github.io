@@ -15,8 +15,8 @@ function createWindow () {
         transparent: true,
         width: Number.parseInt(region[2]) + 400,
         height: Number.parseInt(region[3]),
-        x: Number.parseInt(region[0]),
-        y: Number.parseInt(region[1]),
+        x: 0,
+        y: 0,
         frame: false, //取消window自带的关闭最小化等
         resizable: false,
         webPreferences: {
