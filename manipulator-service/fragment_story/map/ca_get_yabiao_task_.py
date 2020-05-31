@@ -1,5 +1,7 @@
 import infrastructure
 import time
+import time
+import pyautogui
 from logger import logger
 
 # 红色导标旗镖局520 151
@@ -36,6 +38,9 @@ def ca_520_151():
     box = infrastructure.screen.find_image('../../images/ca/ca_biao_message1.png')
     if box is None:
         logger.launch_logger('镖局启动人工验证')
+        pyautogui.alert(text='人工验证完成', title='进入人工验证', button='OK')
+        infrastructure.screen.move_find_image('../../images/ca/ca_biao_message2.png')
+        infrastructure.Mouse.left_click(num=1)
     else:
         infrastructure.screen.move(box.left, box.top)
         infrastructure.Mouse.left_click(num=1)
@@ -44,8 +49,4 @@ def ca_520_151():
         infrastructure.Mouse.left_click(num=1)
 
 
-
-
-
-
-ca_520_151()
+# ca_520_151()

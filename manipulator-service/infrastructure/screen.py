@@ -21,6 +21,7 @@ class Screen:
         self.relative_move_to(100, 100)
         Mouse.right_click()
 
+    # 获取鼠标
     def getJtPosition(self):
         errorHandle = 0
         while True:
@@ -34,9 +35,10 @@ class Screen:
                     print('异常：未找到光标')
                     exit(1)
 
+    # 精准移动
     def move(self, mx, my):
         finished = False
-        while finished == False:
+        while finished is False:
             jiantou = self.getJtPosition()
             dx = jiantou.left - 30
             dy = jiantou.top - 30
